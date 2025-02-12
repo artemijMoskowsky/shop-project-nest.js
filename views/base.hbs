@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {{#each styles}}
+        <link rel="stylesheet" href="{{ this }}">
+    {{/each}}
+    {{#each scripts}}
+        <script src="{{ this }}"></script>
+    {{/each}}
+</head>
+<body>
+    <header>
+        <a href="/">Home</a>
+        <a href="contacts/">Contacts</a>
+        <a href="shop/">Shop</a>
+        <a href="basket/">Basket</a>
+        </header>
+    {{{ body }}}
+</body>
+</html>
