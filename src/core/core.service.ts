@@ -9,4 +9,10 @@ export class CoreService{
             
         };
     }
+    getContacts(){
+        return {
+            layout: "base",
+            styles: ["css/contacts.css"]
+        }
+    }
 }

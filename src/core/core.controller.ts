@@ -13,4 +13,10 @@ export class CoreController{
     getHome(){
         return this.CoreService.getHome();
     }
+
+    @Get("contacts/")
+    @Render("contacts")
+    getContacts(){
+        return this.CoreService.getContacts();
+    }
 }
