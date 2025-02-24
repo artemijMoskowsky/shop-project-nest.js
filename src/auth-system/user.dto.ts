@@ -2,19 +2,22 @@ import { IsDate, IsEmail, IsNotEmpty, IsString, ValidateIf } from "class-validat
 
 export class UserDto {
     @IsString()
+    @IsNotEmpty()
     username: string
 
     @IsEmail()
+    @IsNotEmpty()
     email: string
 
     @IsString()
+    @IsNotEmpty()
     password: string
 }
 
 export class AuthDto {
     // @ValidateIf((data)=>!data.email)
     @IsString()
-    // @IsNotEmpty()
+    @IsNotEmpty()
     username: string
 
     // @ValidateIf((data)=>!data.name)
@@ -23,7 +26,7 @@ export class AuthDto {
     // email?: string
 
     @IsString()
-    // @IsNotEmpty()
+    @IsNotEmpty()
     password: string
 }
 
