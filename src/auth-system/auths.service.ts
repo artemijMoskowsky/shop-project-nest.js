@@ -4,7 +4,7 @@ import { AuthDto, SessionDto, UserDto } from "./user.dto";
 
 
 @Injectable()
-export class AuthsService{
+export class AuthSystemService{
     constructor(private prisma: PrismaService){}
 
     async getSession(token: string){
