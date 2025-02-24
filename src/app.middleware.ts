@@ -13,7 +13,7 @@ function generateString(length) {
 export class ShopGlobalMiddleware implements NestMiddleware {
     use(@Req() req: Request, @Res({ passthrough: true }) res: Response, next: NextFunction){
         if (req.cookies["sessionID"] == undefined){
-            res.cookie("sessionID", `${generateString(25)}`)
+            res.cookie("sessionID", `${generateString(40)}`)
         } else {
             console.log(req.cookies["sessionID"]);
         }
