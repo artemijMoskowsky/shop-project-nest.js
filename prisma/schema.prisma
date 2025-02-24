@@ -20,6 +20,7 @@ model User {
   password String
   isAdmin Boolean @default(false)
   session Session?
+  basket Basket?
 }
 
 model Session {
@@ -28,4 +29,32 @@ model Session {
   user User? @relation(fields: [userId], references: [id])
   userId Int? @unique
   date DateTime
+}
+
+model Basket {
+  id Int @default(autoincrement()) @id
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int @unique
+  products ProductsInBaskets[]
+}
+
+model Product {
+  id Int @default(autoincrement()) @id
+  token String @unique
+  name String
+  imagePath String
+  price Int
+  count Int
+  description String
+  baskets ProductsInBaskets[]
+}
+
+model ProductsInBaskets {
+  basket Basket @relation(fields: [basketId], references: [id])
+  basketId Int
+  product Product @relation(fields: [productId], references: [id])
+  productId Int
+
+
+  @@id([basketId, productId])
 }
