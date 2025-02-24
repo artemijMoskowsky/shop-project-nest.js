@@ -35,7 +35,7 @@ model Basket {
   id Int @default(autoincrement()) @id
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int @unique
-  products ProductsInBaskets[]
+  products Product[]
 }
 
 model Product {
@@ -46,15 +46,15 @@ model Product {
   price Int
   count Int
   description String
-  baskets ProductsInBaskets[]
+  baskets Basket[]
 }
 
-model ProductsInBaskets {
-  basket Basket @relation(fields: [basketId], references: [id])
-  basketId Int
-  product Product @relation(fields: [productId], references: [id])
-  productId Int
+// model ProductsInBaskets {
+//   basket Basket @relation(fields: [basketId], references: [id])
+//   basketId Int
+//   product Product @relation(fields: [productId], references: [id])
+//   productId Int
 
 
-  @@id([basketId, productId])
-}
+//   @@id([basketId, productId])
+// }
